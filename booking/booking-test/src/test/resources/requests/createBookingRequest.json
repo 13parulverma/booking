@@ -1,0 +1,18 @@
+{
+  "bookingId": 1,
+  "userId": 2,
+  "userName": "Ayush",
+  "hotelName": "Ruby",
+  "checkInDate": "14",
+  "checkOutDate": "16",
+  "payment": 2000,
+  "room":[
+    {
+      "roomId": "2",
+      "roomNumber": "201",
+      "roomType": "single",
+      "price": 1000,
+      "availability": true
+    }
+  ]
+}

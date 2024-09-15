@@ -1,0 +1,107 @@
+openapi: 3.0.0
+info:
+  title: Hotel API
+  version: 1.0.0
+  description: API for managing hotels
+
+paths:
+  /api/hotel:
+    post:
+      summary: Creates a new hotel
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Hotel'
+      responses:
+        '200':
+          description: Hotel created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hotel'
+    get:
+      summary: Fetches all hotels
+      responses:
+        '200':
+          description: List of all hotels
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Hotel'
+
+  /api/hotel/{id}:
+    get:
+      summary: Fetches a hotel by its ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Hotel fetched successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hotel'
+    put:
+      summary: Updates an existing hotel
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Hotel'
+      responses:
+        '200':
+          description: Hotel updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Hotel'
+    delete:
+      summary: Deletes a hotel by its ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Hotel deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteResponse'
+
+components:
+  schemas:
+    Hotel:
+      type: object
+      properties:
+        hotelId:
+          type: integer
+        name:
+          type: string
+        address:
+          type: string
+        rating:
+          type: number
+          format: float
+    DeleteResponse:
+      type: object
+      properties:
+        message:
+          type: string

@@ -1,0 +1,5 @@
+com.hrs.hotel.booking.config.ResourceConfig
+com.hrs.hotel.booking.config.ModelConfig
+com.hrs.hotel.booking.config.MapperConfig
+com.hrs.hotel.booking.config.AspectConfig
+
